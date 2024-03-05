@@ -14,11 +14,12 @@ class _ProductListViewState extends State<ProductListView> {
       width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.height / 1.5,
       child: GridView(
+        physics: const NeverScrollableScrollPhysics(),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             mainAxisSpacing: 20, crossAxisCount: 2, crossAxisSpacing: 16),
         children: List.generate(
           10,
-          (index) => InkWell(
+          (index) => GestureDetector(
             onTap: () {},
             child: Stack(
               children: [

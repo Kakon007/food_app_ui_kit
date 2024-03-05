@@ -13,8 +13,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.redAccent),
         useMaterial3: true,
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.redAccent)
+            .copyWith(background: Colors.white),
       ),
       home: const HomeView(),
     );

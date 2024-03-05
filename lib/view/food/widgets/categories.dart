@@ -21,7 +21,9 @@ class ProductCategoryButton extends StatelessWidget {
               child: const Center(
                 child: Padding(
                   padding: EdgeInsets.only(left: 15, right: 15),
-                  child: Text('Burger', style: TextStyle(color: Colors.black)),
+                  child: Text('Burger',
+                      style: TextStyle(
+                          color: Colors.black, fontWeight: FontWeight.w600)),
                 ),
               ),
             ),

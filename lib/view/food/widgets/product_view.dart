@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_ui_kit/view/food_details/food_details_view.dart';
 
 class ProductListView extends StatefulWidget {
   const ProductListView({super.key});
@@ -8,19 +9,33 @@ class ProductListView extends StatefulWidget {
 }
 
 class _ProductListViewState extends State<ProductListView> {
+  List<String> images = [
+    'assets/images/burger_demo.png',
+    'assets/images/dish_demo.png'
+  ];
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.height / 1.5,
       child: GridView(
-        physics: const NeverScrollableScrollPhysics(),
+        //physics: const NeverScrollableScrollPhysics(),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             mainAxisSpacing: 20, crossAxisCount: 2, crossAxisSpacing: 16),
         children: List.generate(
           10,
           (index) => GestureDetector(
-            onTap: () {},
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => FoodDetailsView(
+                    heroTagIndex: index,
+                    imagePath: index % 2 == 0 ? images[0] : images[1],
+                  ),
+                ),
+              );
+            },
             child: Stack(
               children: [
                 Align(
@@ -33,36 +48,51 @@ class _ProductListViewState extends State<ProductListView> {
                         color: Colors.grey[300]),
                     child: const Padding(
                       padding: EdgeInsets.all(8.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.end,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text(
-                            'Top Rated Dish',
-                            style: TextStyle(
-                                fontSize: 16, fontWeight: FontWeight.bold),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Text(
+                                'Top Rated Dish',
+                                style: TextStyle(
+                                    fontSize: 16, fontWeight: FontWeight.bold),
+                              ),
+                              SizedBox(
+                                height: 5,
+                              ),
+                              Text(
+                                '\$ 20.00 ',
+                                style: TextStyle(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w600,
+                                    color: Colors.grey),
+                              )
+                            ],
                           ),
-                          SizedBox(
-                            height: 5,
-                          ),
-                          Text(
-                            '\$ 20.00 ',
-                            style: TextStyle(
-                                fontSize: 14,
-                                fontWeight: FontWeight.w600,
-                                color: Colors.grey),
+                          Align(
+                            alignment: Alignment.bottomCenter,
+                            child: Icon(
+                              Icons.add_circle,
+                              color: Colors.red,
+                            ),
                           )
                         ],
                       ),
                     ),
                   ),
                 ),
-                Align(
-                  alignment: Alignment.topCenter,
-                  child: SizedBox(
-                    width: 140,
-                    child: Image.asset(
-                      'assets/images/dish_demo.png',
+                Hero(
+                  tag: 'burger$index',
+                  child: Align(
+                    alignment: Alignment.topCenter,
+                    child: SizedBox(
+                      width: 140,
+                      child: Image.asset(
+                        index % 2 == 0 ? images[0] : images[1],
+                      ),
                     ),
                   ),
                 ),

@@ -15,6 +15,15 @@ class FoodView extends StatelessWidget {
           style: TextStyle(
               color: Colors.black, fontSize: 24, fontWeight: FontWeight.bold),
         ),
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(
+              Icons.shopping_cart,
+              color: Colors.black,
+            ),
+          )
+        ],
       ),
       body: const SingleChildScrollView(
         scrollDirection: Axis.vertical,
@@ -28,7 +37,7 @@ class FoodView extends StatelessWidget {
               ),
               ProductCategoryButton(),
               SizedBox(
-                height: 40,
+                height: 30,
               ),
               ProductListView(),
             ],

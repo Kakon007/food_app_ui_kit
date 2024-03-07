@@ -46,8 +46,8 @@ class _ProductListViewState extends State<ProductListView> {
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(12),
                         color: Colors.grey[200]),
-                    child: const Padding(
-                      padding: EdgeInsets.all(8.0),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -56,14 +56,18 @@ class _ProductListViewState extends State<ProductListView> {
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
                               Text(
-                                'Top Rated Dish',
-                                style: TextStyle(
+                                index % 2 == 0
+                                    ? 'Spicy Bomb \n Burger'
+                                    : 'Hulk Mix \n Platter',
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                                style: const TextStyle(
                                     fontSize: 16, fontWeight: FontWeight.bold),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 5,
                               ),
-                              Row(
+                              const Row(
                                 children: [
                                   Text(
                                     '\$ 20.00 ',
@@ -90,7 +94,7 @@ class _ProductListViewState extends State<ProductListView> {
                               )
                             ],
                           ),
-                          Align(
+                          const Align(
                             alignment: Alignment.bottomCenter,
                             child: Icon(
                               Icons.add_circle,

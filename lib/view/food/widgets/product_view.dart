@@ -42,10 +42,10 @@ class _ProductListViewState extends State<ProductListView> {
                   alignment: Alignment.bottomCenter,
                   child: Container(
                     width: MediaQuery.of(context).size.width,
-                    height: 120,
+                    height: 125,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(12),
-                        color: Colors.grey[300]),
+                        color: Colors.grey[200]),
                     child: const Padding(
                       padding: EdgeInsets.all(8.0),
                       child: Row(
@@ -63,12 +63,30 @@ class _ProductListViewState extends State<ProductListView> {
                               SizedBox(
                                 height: 5,
                               ),
-                              Text(
-                                '\$ 20.00 ',
-                                style: TextStyle(
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w600,
-                                    color: Colors.grey),
+                              Row(
+                                children: [
+                                  Text(
+                                    '\$ 20.00 ',
+                                    style: TextStyle(
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w600,
+                                        color: Colors.green),
+                                  ),
+                                  SizedBox(
+                                    width: 5,
+                                  ),
+                                  Icon(
+                                    Icons.local_fire_department,
+                                    color: Colors.orange,
+                                  ),
+                                  Text(
+                                    '4.5',
+                                    style: TextStyle(
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w600,
+                                        color: Colors.grey),
+                                  )
+                                ],
                               )
                             ],
                           ),

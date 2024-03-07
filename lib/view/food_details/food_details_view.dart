@@ -14,12 +14,12 @@ class FoodDetailsView extends StatelessWidget {
           Column(
             children: [
               Container(
-                height: MediaQuery.of(context).size.height / 2,
+                height: MediaQuery.of(context).size.height / 3.5,
                 width: MediaQuery.of(context).size.width,
                 decoration: const BoxDecoration(color: Colors.amber),
               ),
               const SizedBox(
-                height: 20,
+                height: 50,
               ),
               const Text(
                 'Burger',
@@ -30,12 +30,18 @@ class FoodDetailsView extends StatelessWidget {
               ),
             ],
           ),
-          Hero(
-            tag: 'burger$heroTagIndex',
-            child: Image.asset(
-              imagePath!,
-              height: 200,
-              width: 200,
+          Align(
+            alignment: Alignment.center,
+            child: Padding(
+              padding: const EdgeInsets.only(top: 150.0),
+              child: Hero(
+                tag: 'burger$heroTagIndex',
+                child: Image.asset(
+                  imagePath!,
+                  height: 200,
+                  width: 200,
+                ),
+              ),
             ),
           )
         ],

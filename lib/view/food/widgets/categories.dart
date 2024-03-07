@@ -10,20 +10,24 @@ class ProductCategoryButton extends StatelessWidget {
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         shrinkWrap: true,
-        itemBuilder: (c, i) => Padding(
+        itemBuilder: (c, index) => Padding(
           padding: const EdgeInsets.all(8.0),
           child: InkWell(
             onTap: () {},
             child: Container(
               decoration: BoxDecoration(
-                  color: const Color(0xffF2F2F2),
+                  border: Border.all(
+                      color: index == 0 ? Colors.redAccent : Colors.white,
+                      width: 1),
+                  color: Colors.grey[200],
                   borderRadius: BorderRadius.circular(12)),
-              child: const Center(
+              child: Center(
                 child: Padding(
-                  padding: EdgeInsets.only(left: 15, right: 15),
+                  padding: const EdgeInsets.only(left: 15, right: 15),
                   child: Text('Burger',
                       style: TextStyle(
-                          color: Colors.black, fontWeight: FontWeight.w600)),
+                          color: index == 0 ? Colors.redAccent : Colors.black,
+                          fontWeight: FontWeight.w600)),
                 ),
               ),
             ),

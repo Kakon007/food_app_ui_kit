@@ -13,13 +13,13 @@ class _ProductListViewState extends State<ProductListView> {
     'assets/images/burger_demo.png',
     'assets/images/dish_demo.png'
   ];
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.height / 1.5,
       child: GridView(
-        //physics: const NeverScrollableScrollPhysics(),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             mainAxisSpacing: 20, crossAxisCount: 2, crossAxisSpacing: 16),
         children: List.generate(
@@ -94,7 +94,7 @@ class _ProductListViewState extends State<ProductListView> {
                             alignment: Alignment.bottomCenter,
                             child: Icon(
                               Icons.add_circle,
-                              color: Colors.red,
+                              color: Colors.amber,
                             ),
                           )
                         ],

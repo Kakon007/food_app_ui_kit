@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class FoodDetailsView extends StatelessWidget {
   final int? heroTagIndex;
@@ -13,6 +14,7 @@ class FoodDetailsView extends StatelessWidget {
       child: Stack(
         children: [
           Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
                 height: MediaQuery.of(context).size.height / 3.5,
@@ -65,8 +67,32 @@ class FoodDetailsView extends StatelessWidget {
                 ),
               ),
               const SizedBox(
-                height: 50,
+                height: 90,
               ),
+              const Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Text('Food Rating: 4.5/5',
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold)),
+              ),
+              RatingBar.builder(
+                itemSize: 20,
+                initialRating: 4.5,
+                minRating: 1,
+                direction: Axis.horizontal,
+                allowHalfRating: true,
+                itemCount: 5,
+                itemPadding: const EdgeInsets.symmetric(horizontal: 2.0),
+                itemBuilder: (context, _) => const Icon(
+                  Icons.star,
+                  color: Colors.amber,
+                ),
+                onRatingUpdate: (rating) {
+                  print(rating);
+                },
+              )
             ],
           ),
           Align(
